@@ -38,9 +38,9 @@ def main():
         # Read file
         try:
             if uploaded_file.name.endswith(".CSV") or uploaded_file.name.endswith(".TXT") or uploaded_file.name.endswith(".csv") or uploaded_file.name.endswith(".txt"):
-                df = pd.read_csv(uploaded_file, delimiter=delimiter, decimal=decimal_separator)
+                df = pd.read_csv(uploaded_file, delimiter=delimiter, decimal=decimal_separator,dtype=str)
             elif uploaded_file.name.endswith(".xlsx") or uploaded_file.name.endswith(".XLSX"):
-                df = pd.read_excel(uploaded_file,engine='openpyxl')
+                df = pd.read_excel(uploaded_file,engine='openpyxl',dtype=str)
             
             df.index.name = 'Index'
 
