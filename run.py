@@ -23,7 +23,7 @@ def main():
 
     # First item spans two rows and two columns
     with col1:
-        uploaded_file = st.file_uploader("Upload file", type=["csv", "xlsx"])
+        uploaded_file = st.file_uploader("Upload file", type=["csv", "xlsx","txt"])
 
     # Second row in the last column for delimiter and decimal separator
     with col2:
@@ -37,7 +37,7 @@ def main():
     if uploaded_file:
         # Read file
         try:
-            if uploaded_file.name.endswith(".csv"):
+            if uploaded_file.name.endswith(".csv") or uploaded_file.name.endswith(".txt"):
                 df = pd.read_csv(uploaded_file, delimiter=delimiter, decimal=decimal_separator)
             elif uploaded_file.name.endswith(".xlsx"):
                 df = pd.read_excel(uploaded_file,engine='openpyxl')
